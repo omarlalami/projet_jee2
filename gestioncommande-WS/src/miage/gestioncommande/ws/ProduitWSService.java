@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import miage.gestioncommande.api.CatalogueService;
+import miage.gestioncommande.api.Prix;
 import miage.gestioncommande.api.Produit;
 
 
@@ -42,14 +43,43 @@ public class ProduitWSService {
 	// utilisation sur POSTMAN
 	// POST
 	// http://localhost:8080/gestioncommande-WS/gestioncommande/produit/ajout?
+	// pas tres sur comment on fait pour passez un produit durant l'appel
+
+	
+	
+	@POST
+	@Path("/actualiserprix")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response actualiserPrix(Prix px, Produit pr) {
+		cg.actualiserPrix(px,pr);
+		return Response.ok("prix produit actualiser : OK").build();
+	}
 
 
+	@POST
+	@Path("/rechercherproduit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response rechercherProduit(Long id) {
+		return Response.ok(cg.rechercherProduit(id)).build();
+	}
 
-
-
-
-
-
-
+	@POST
+	@Path("/supprimerproduit")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response supprimerProduit(Long id) {
+		cg.supprimerProduit(id);
+		return Response.ok("produit supprimer: OK").build();
+	}
+	
+	
+	@POST
+	@Path("/recupererprix")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response recupererPrix(Produit p) {
+		return Response.ok(cg.recupererPrix(p)).build();
+	}
+	
 
 }
