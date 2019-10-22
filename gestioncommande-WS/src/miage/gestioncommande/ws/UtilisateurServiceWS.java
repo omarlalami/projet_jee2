@@ -4,14 +4,15 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Path;
 
-import miage.gestioncommande.api.CommandeService;
+import miage.gestioncommande.api.UtilisateurService;
 
 @Stateless
-@Path("/commande")
-public class CommandeServiceWS {
+@Path("/utilisateur")
+public class UtilisateurServiceWS {
 
 	@Inject
-	private CommandeService cs;
+	private UtilisateurService us;
+	
 	
 	
 	

@@ -1,7 +1,9 @@
 package miage.gestioncommande.coreM;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Singleton;
@@ -17,6 +19,16 @@ public class UtilisateurServiceM implements UtilisateurService {
 	private List<Client> listeClient;
 	private List<Responsable> listeResponsable;
 
+	
+	@PostConstruct
+	public void initialiser() {
+		
+		listeClient = new ArrayList<Client>();
+		listeResponsable = new ArrayList<Responsable>();
+		
+		
+	}
+	
 	@Override
 	public List<? extends Client> listerClients() {
 		return listeClient;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Singleton;
@@ -21,8 +22,14 @@ import miage.gestioncommande.api.Produit;
 @Local(CommandeService.class)
 public class CommandeServiceM implements CommandeService {
 
-	private List<CommandeM> listeCommande;
-	private CommandeM commandeSelectionner;
+	private List<Commande> listeCommande;
+	private Commande commandeSelectionner;
+	
+	@PostConstruct
+	public void initialiser() {
+		listeCommande = new ArrayList<Commande>();
+		
+	}
 
 	@Override
 	public List<? extends Commande> rechercherCommande() {
@@ -93,8 +100,8 @@ public class CommandeServiceM implements CommandeService {
 
 	@Override
 	public List<? extends Commande> listerCommandes(Client c) {
-		ArrayList <CommandeM> commandesClient = new ArrayList();
-		for ( CommandeM commande : listeCommande )
+		ArrayList <Commande> commandesClient = new ArrayList();
+		for ( Commande commande : listeCommande )
 			if ( (commande.getClient()).equals(c) )
 				commandesClient.add(commande);
 		return commandesClient;
