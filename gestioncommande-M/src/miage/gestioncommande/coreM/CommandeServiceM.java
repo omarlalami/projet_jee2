@@ -29,6 +29,21 @@ public class CommandeServiceM implements CommandeService {
 	public void initialiser() {
 		listeCommande = new ArrayList<Commande>();
 		
+		Commande c1 = new CommandeM();
+		c1.setId((long)1);
+		c1.setDateCommande(Calendar.getInstance());
+		c1.setClient(null);
+		c1.setResponsable(null);
+		c1.setLigneCommandes(null);
+		
+		listeCommande.add(c1);
+
+		commandeSelectionner = new CommandeM();
+		commandeSelectionner.setId((long)listeCommande.size());
+		commandeSelectionner.setDateCommande(Calendar.getInstance());
+		commandeSelectionner.setClient(null);
+		commandeSelectionner.setResponsable(null);
+		commandeSelectionner.setLigneCommandes(null);
 	}
 
 	@Override
@@ -38,7 +53,11 @@ public class CommandeServiceM implements CommandeService {
 
 	@Override
 	public void livrerCommande(Commande c) {
-		c.setDateLivraison(Calendar.getInstance());
+		if (listeCommande.contains(c)) {
+			listeCommande.remove(c);
+			c.setDateLivraison(Calendar.getInstance());
+			listeCommande.add(c);
+		}
 	}
 
 	@Override
@@ -52,7 +71,7 @@ public class CommandeServiceM implements CommandeService {
 
 	@Override
 	public void selectionnerCommande(Commande c) {
-		commandeSelectionner=(CommandeM) c;
+		commandeSelectionner= c;
 	}
 
 	@Override
@@ -85,7 +104,8 @@ public class CommandeServiceM implements CommandeService {
 
 	@Override
 	public void sauvegarderCommande() {
-		listeCommande.add(commandeSelectionner);
+		if (commandeSelectionner != null)
+			listeCommande.add(commandeSelectionner);
 	}
 
 	@Override

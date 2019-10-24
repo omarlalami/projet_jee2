@@ -34,7 +34,7 @@ public class ProduitWSService {
 	// http://localhost:8080/gestioncommande-WS/gestioncommande/produit/list
 
 	@POST
-	@Path("/ajoute")
+	@Path("/ajouterproduit")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response ajouterProduit(Produit p) {
 		cg.ajouterProduit(p);
