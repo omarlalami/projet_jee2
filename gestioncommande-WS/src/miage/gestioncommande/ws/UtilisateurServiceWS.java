@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import miage.gestioncommande.api.Client;
+import miage.gestioncommande.api.Responsable;
 import miage.gestioncommande.api.UtilisateurService;
 
 @Stateless
@@ -33,4 +35,19 @@ public class UtilisateurServiceWS {
 		return Response.ok(us.listerResponsable()).build();
 	}
 	
+	@POST
+	@Path("/creerclient")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response creerClient(Client c) {
+		us.creerClient(c);
+		return Response.ok("client ajouter : OK").build();
+	}
+	
+	@POST
+	@Path("/creerresponsable")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response creerResponsable(Responsable r) {
+		us.creerResponsable(r);
+		return Response.ok("responsable ajouter : OK").build();
+	}
 }
