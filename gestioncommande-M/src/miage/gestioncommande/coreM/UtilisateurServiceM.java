@@ -26,8 +26,10 @@ public class UtilisateurServiceM implements UtilisateurService {
 		listeClient = new ArrayList<Client>();
 		listeResponsable = new ArrayList<Responsable>();
 		
-		Client c1,c2 = new ClientM();
-		Responsable r1,r2 = new ResponsableM();
+		Client c1 = new ClientM();	
+		Client c2 = new ClientM();
+		Responsable r1 = new ResponsableM();
+		Responsable r2 = new ResponsableM();
 		
 		listeClient.add(c1);
 		listeClient.add(c2);
