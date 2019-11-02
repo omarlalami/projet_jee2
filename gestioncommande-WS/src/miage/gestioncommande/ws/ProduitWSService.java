@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import miage.gestioncommande.api.CatalogueService;
 import miage.gestioncommande.api.Prix;
 import miage.gestioncommande.api.Produit;
+import miage.gestioncommande.coreM.ProduitM;
 
 
 @Stateless
@@ -36,7 +37,7 @@ public class ProduitWSService {
 	@POST
 	@Path("/ajouterproduit")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response ajouterProduit(Produit p) {
+	public Response ajouterProduit(ProduitM p) {
 		cg.ajouterProduit(p);
 		return Response.ok("objet ajout avec succes").build();
 	}
