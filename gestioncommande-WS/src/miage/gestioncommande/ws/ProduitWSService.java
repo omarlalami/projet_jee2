@@ -37,7 +37,7 @@ public class ProduitWSService {
 	@POST
 	@Path("/ajouterproduit")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response ajouterProduit(Produit p) {
+	public Response ajouterProduit(ProduitM p) {
 		cg.ajouterProduit(p);
 		return Response.ok("objet ajout avec succes").build();
 	}
