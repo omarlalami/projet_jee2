@@ -1,6 +1,7 @@
 package miage.gestioncommande.coreM;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -24,6 +25,7 @@ public class CatalogueServiceM implements CatalogueService {
 		Prix prix1 = new PrixM();
 		prix1.setId((long) 1);
 		prix1.setPrix(12.99);
+		prix1.setDateprix(Calendar.getInstance());
 		
 		List<Prix> listePrix = new ArrayList<Prix>();
 		listePrix.add(prix1);
