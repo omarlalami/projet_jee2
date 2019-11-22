@@ -3,15 +3,20 @@ package miage.gestioncommande.coreM;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import miage.gestioncommande.api.Prix;
 import miage.gestioncommande.api.Produit;
 
+@XmlRootElement
 public class ProduitM implements Produit {
 
 	private Long id;
 	
 	private String designation;
 	
+	@XmlElement(type=PrixM.class)
 	private List<Prix> prix;
 
 	/* (non-Javadoc)
