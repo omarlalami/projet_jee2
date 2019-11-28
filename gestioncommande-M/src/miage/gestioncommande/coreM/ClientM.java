@@ -2,18 +2,23 @@ package miage.gestioncommande.coreM;
 
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import miage.gestioncommande.api.Adresse;
 import miage.gestioncommande.api.Client;
 import miage.gestioncommande.api.Responsable;
-
+@XmlRootElement
 public class ClientM extends UtilisateurM implements Client {
 
 	private String genre;
 	
 	private Calendar dateNaiss;
 	
+	@XmlElement(type=AdresseM.class)
 	private Adresse adresse;
 	
+	@XmlElement(type=ResponsableM.class)
 	private Responsable responsable;
 
 	/* (non-Javadoc)

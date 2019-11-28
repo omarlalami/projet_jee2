@@ -1,7 +1,9 @@
 package miage.gestioncommande.coreM;
 
-import miage.gestioncommande.api.Responsable;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import miage.gestioncommande.api.Responsable;
+@XmlRootElement
 public class ResponsableM extends UtilisateurM implements Responsable{
 
 	private String numEmployee;

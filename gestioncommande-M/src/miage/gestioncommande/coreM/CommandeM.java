@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import miage.gestioncommande.api.Client;
 import miage.gestioncommande.api.Commande;
 import miage.gestioncommande.api.LigneCommande;
 import miage.gestioncommande.api.Produit;
 import miage.gestioncommande.api.Responsable;
 
+@XmlRootElement
 public class CommandeM implements Commande {
 
 	private Long id;
@@ -17,11 +21,14 @@ public class CommandeM implements Commande {
 	private Calendar dateCommande;
 	
 	private Calendar dateLivraison;
-	
+
+	@XmlElement(type=ClientM.class)
 	private Client client;
 	
+	@XmlElement(type=ResponsableM.class)
 	private Responsable responsable;
 	
+	@XmlElement(type=LigneCommandeM.class)
 	private List<LigneCommandeM> ligneCommandes;
 
 	/* (non-Javadoc)
