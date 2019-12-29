@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import miage.gestioncommande.api.Client;
 import miage.gestioncommande.api.Commande;
 import miage.gestioncommande.api.LigneCommande;
-import miage.gestioncommande.api.Produit;
 import miage.gestioncommande.api.Responsable;
 
 @XmlRootElement

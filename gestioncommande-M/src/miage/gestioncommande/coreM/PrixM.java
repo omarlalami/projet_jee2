@@ -3,7 +3,6 @@ package miage.gestioncommande.coreM;
 import java.util.Calendar;
 
 import miage.gestioncommande.api.Prix;
-import miage.gestioncommande.api.Produit;
 
 public class PrixM implements Prix {
 	

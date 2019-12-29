@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.ejb.Singleton;
 
 import miage.gestioncommande.api.Client;
